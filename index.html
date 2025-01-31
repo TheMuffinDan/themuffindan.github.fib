@@ -1,3 +1,74 @@
-<h1>Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boredom Buster</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            text-align: center;
+            font-family: "Courier New", monospace;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .button {
+            background-color: #ff9800;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: black;
+        }
+        .button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bored? Click a Button!</h1>
+        <button class="button" onclick="goToRandomSite('games')">Games</button>
+        <button class="button" onclick="goToRandomSite('videos')">Videos</button>
+        <button class="button" onclick="goToRandomSite('learning')">Learn Something</button>
+        <button class="button" onclick="goToRandomSite('shopping')">Shopping</button>
+    </div>
+    
+    <script>
+        const sites = {
+            games: [
+                "https://www.coolmathgames.com/random",
+                "https://www.crazygames.com/random",
+                "https://poki.com/random"
+            ],
+            videos: [
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "https://www.ted.com/talks",
+                "https://www.vimeo.com/channels/staffpicks"
+            ],
+            learning: [
+                "https://www.khanacademy.org/random",
+                "https://www.duolingo.com/random",
+                "https://www.coursera.org/random"
+            ],
+            shopping: [
+                "https://www.amazon.com/gp/goldbox",
+                "https://www.etsy.com/c/whats-new",
+                "https://www.ebay.com/deals"
+            ]
+        };
 
-<p>Welcome to mt Github Site</p></h1>
+        function goToRandomSite(category) {
+            const categorySites = sites[category];
+            if (categorySites) {
+                const randomIndex = Math.floor(Math.random() * categorySites.length);
+                window.location.href = categorySites[randomIndex];
+            }
+        }
+    </script>
+</body>
+</html>
